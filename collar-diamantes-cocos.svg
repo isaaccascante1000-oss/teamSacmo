@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">Collar Diamantes Cocos</title>
+  <desc id="desc">Ilustración de un collar de oro con un colgante de diamantes.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%"><stop stop-color="#26364d"/><stop offset="1" stop-color="#0c121d"/></radialGradient>
+    <linearGradient id="gold" x1="0" x2="1"><stop stop-color="#9b6d2d"/><stop offset=".5" stop-color="#f5d98b"/><stop offset="1" stop-color="#a36f26"/></linearGradient>
+    <linearGradient id="diamond" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".35" stop-color="#d7f5ff"/><stop offset=".7" stop-color="#8fc7de"/><stop offset="1" stop-color="#fff"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="400" cy="400" r="330" fill="none" stroke="#c7a55e" stroke-opacity=".12"/>
+  <path d="M170 166 C210 570 310 640 400 651 C490 640 590 570 630 166" fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round"/>
+  <path d="M174 166 C214 561 309 628 400 641 C491 628 586 561 626 166" fill="none" stroke="#fff1bb" stroke-opacity=".6" stroke-width="2"/>
+  <circle cx="400" cy="640" r="23" fill="url(#gold)"/>
+  <path d="M400 656 L345 714 L400 767 L455 714 Z" fill="url(#gold)" filter="url(#glow)"/>
+  <path d="M400 663 L355 714 L400 754 L445 714 Z" fill="url(#diamond)"/>
+  <path d="M400 663 L400 754 M355 714 H445 M378 688 L422 688" stroke="#fff" stroke-opacity=".8" stroke-width="3"/>
+  <g fill="url(#diamond)" filter="url(#glow)"><circle cx="338" cy="625" r="8"/><circle cx="365" cy="641" r="8"/><circle cx="435" cy="641" r="8"/><circle cx="462" cy="625" r="8"/></g>
+  <text x="400" y="95" text-anchor="middle" fill="#f4dfaa" font-family="Georgia, serif" font-size="26" letter-spacing="6">CASA DEL YIGÜIRRO</text>
+</svg>
