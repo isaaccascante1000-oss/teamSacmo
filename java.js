@@ -328,6 +328,7 @@ const PRODUCTS = [
     stock: 3,
     imagenes: [
       { src: "https://images.unsplash.com/photo-1599643478518-17488fbbcd75?w=800&q=80", alt: "Collar con colgante de diamantes en forma de gota sobre cadena de oro" },
+      { src: "collar-diamantes-cocos.svg", alt: "Collar de oro con colgante de diamantes sobre fondo azul noche" },
       { src: "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=800&q=80", alt: "Detalle del colgante mostrando los diamantes en engaste de bisel" }
     ],
     descripcion_corta: "Collar con colgante de diamantes naturales en oro amarillo 18k. Cadena de eslabones con cierre de mosquetón. Diseño delicado y luminoso.",
@@ -615,6 +616,7 @@ function renderProductDetail(productId) {
   const insignias = p.insignias.map(i => `<span class="insignia">${escapeHtml(i)}</span>`).join("");
   const thumbs = p.imagenes.map((img, idx) => `
     <button class="detail-thumb ${idx === 0 ? "active" : ""}" data-index="${idx}" aria-label="Ver imagen ${idx + 1}">
+    <button class="detail-thumb ${idx === 0 ? "active" : ""}" data-index="${idx}" aria-label="Ver imagen ${idx + 1} de ${p.imagenes.length}" aria-pressed="${idx === 0}">
       <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.alt)}">
     </button>
   `).join("");
@@ -626,6 +628,11 @@ function renderProductDetail(productId) {
         <div class="detail-gallery">
           <div class="detail-main-image">
             <img id="detail-main-img" src="${escapeHtml(p.imagenes[0].src)}" alt="${escapeHtml(p.imagenes[0].alt)}">
+          <div class="detail-main-image detail-carousel" data-product-id="${escapeHtml(p.id)}" tabindex="0" aria-roledescription="carrusel" aria-label="Galería de imágenes de ${escapeHtml(p.nombre)}">
+            <img id="detail-main-img" src="${escapeHtml(p.imagenes[0].src)}" alt="${escapeHtml(p.imagenes[0].alt)}">
+            <button class="gallery-arrow gallery-arrow-prev" type="button" data-direction="-1" aria-label="Ver imagen anterior">&#10094;</button>
+            <button class="gallery-arrow gallery-arrow-next" type="button" data-direction="1" aria-label="Ver imagen siguiente">&#10095;</button>
+            <p class="gallery-counter" aria-live="polite"><span id="detail-image-current">1</span> / ${p.imagenes.length}</p>
           </div>
           <div class="detail-thumbs">${thumbs}</div>
         </div>
@@ -808,6 +815,56 @@ function attachEventListeners() {
     });
   });
 
+  // Galería del detalle: miniaturas, flechas y teclas direccionales.
+  const updateDetailImage = (index) => {
+    const gallery = document.querySelector(".detail-carousel");
+    if (!gallery) return;
+    const p = PRODUCTS.find(x => x.id === gallery.dataset.productId);
+    if (!p) return;
+
+    const imageIndex = (Number(index) + p.imagenes.length) % p.imagenes.length;
+    const mainImg = document.getElementById("detail-main-img");
+    const counter = document.getElementById("detail-image-current");
+    if (mainImg) {
+      mainImg.classList.remove("is-changing");
+      void mainImg.offsetWidth;
+      mainImg.src = p.imagenes[imageIndex].src;
+      mainImg.alt = p.imagenes[imageIndex].alt;
+      mainImg.classList.add("is-changing");
+    }
+    if (counter) counter.textContent = imageIndex + 1;
+    document.querySelectorAll(".detail-thumb").forEach((thumb, thumbIndex) => {
+      const isActive = thumbIndex === imageIndex;
+      thumb.classList.toggle("active", isActive);
+      thumb.setAttribute("aria-pressed", String(isActive));
+    });
+  };
+
+  document.querySelectorAll(".detail-thumb").forEach(thumb => {
+    thumb.addEventListener("click", () => {
+      updateDetailImage(thumb.dataset.index);
+    });
+  });
+
+  document.querySelectorAll(".gallery-arrow").forEach(arrow => {
+    arrow.addEventListener("click", () => {
+      const activeThumb = document.querySelector(".detail-thumb.active");
+      updateDetailImage(Number(activeThumb?.dataset.index || 0) + Number(arrow.dataset.direction));
+    });
+  });
+
+  document.querySelector(".detail-carousel")?.addEventListener("keydown", event => {
+    const activeThumb = document.querySelector(".detail-thumb.active");
+    const currentIndex = Number(activeThumb?.dataset.index || 0);
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      updateDetailImage(currentIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      updateDetailImage(currentIndex + 1);
+    }
+  });
+
   // Botón de asesoría
   const btnConsultar = document.getElementById("btn-consultar");
   if (btnConsultar && !btnConsultar.disabled) {
@@ -848,5 +905,6 @@ function initMobileMenu() {
 document.addEventListener("DOMContentLoaded", () => {
   handleRoute();
   initMobileMenu(); 
+  initMobileMenu();
   window.addEventListener("hashchange", handleRoute);
 });

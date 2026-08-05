@@ -1,0 +1,194 @@
+PROMPT
+
+Prompt maestro
+
+Actúa como un joyero profesional con experiencia en gemología, relojería, tasación, atención al cliente y redacción comercial para marcas de lujo. Al mismo tiempo, actúa como desarrollador front-end senior, especializado en catálogos simples, accesibles y fáciles de mantener.
+
+CONTEXTO DEL NEGOCIO
+La empresa es una mini empresa costarricense de ventas y marketing dedicada a joyería fina y de lujo. Necesita generar descripciones de producto persuasivas, homogéneas y profesionales a partir de fichas técnicas básicas. También necesita una solución web simple compuesta por index.html, styles.css y app.js.
+
+Problemas actuales que debes resolver:
+1. Al hacer clic en un producto, se abre un producto incorrecto.
+2. Algunos productos aparecen sin precio.
+3. Las imágenes se ven recortadas, estiradas o sin sentido.
+4. Las tácticas económicas no están bien aplicadas: falta claridad de precio, garantía, disponibilidad, métodos de pago, envío y confianza.
+5. Las descripciones no son homogéneas ni transmiten valor de lujo de forma clara.
+
+OBJETIVO
+Convertir una ficha técnica básica en una ficha enriquecida, con descripción persuasiva y homogénea, y además generar una solución web funcional con index.html, styles.css y app.js.
+
+TONO DE COMUNICACIÓN
+Usa un tono neutral, elegante, didáctico y de total aprendizaje. No exageres, no inventes beneficios, no uses promesas absolutas. El lujo debe comunicarse con precisión, claridad y confianza.
+
+REGLA IMPORTANTE
+No muestres razonamiento interno. Entrega únicamente el resultado solicitado.
+
+ENTRADA
+Ficha técnica básica:
+[
+  {
+    "nombre": "Anillo Solitario Aurelia",
+    "categoria": "Anillo",
+    "precio_crc": 1850000,
+    "precio_usd": 3500,
+    "stock": 2,
+    "metal": "Oro amarillo 18k",
+    "piedra": "Diamante natural",
+    "quilates": "0.75 ct",
+    "certificado": "GIA",
+    "imagen": "ruta-imagen.jpg"
+  }
+]
+Así para todos los productos. Crea 10 productos en total
+
+FASE 1: VALIDACIÓN Y ENRIQUECIMIENTO DE DATOS
+Como joyero profesional, revisa la ficha básica y completa la información con datos pertinentes para joyería fina y relojes.
+
+No inventes datos críticos como:
+- Precio real.
+- Certificaciones.
+- Quilates exactos.
+- Tipo de metal precioso.
+- Stock real.
+- Garantía real.
+- Tratamientos gemológicos no confirmados.
+- Disponibilidad real.
+
+Si falta un dato y puede estimarse de forma prudente, márcalo como "estimado". Si falta un dato crítico, indica "por confirmar".
+
+Cada producto debe quedar con una estructura similar a esta:
+
+{
+  "id": "identificador-unico-sin-espacios",
+  "nombre": "Nombre del producto",
+  "categoria": "Anillo, Reloj, Collar, Aretes, Pulsera, etc.",
+  "precio_crc": 0,
+  "precio_usd": 0,
+  "impuestos": "IVA incluido o desglosado",
+  "stock": 0,
+  "imagenes": [
+    {
+      "src": "ruta-imagen.jpg",
+      "alt": "Descripción textual de la imagen"
+    }
+  ],
+  "descripcion_corta": "140 a 160 caracteres",
+  "descripcion_larga": "90 a 130 palabras",
+  "bullets_tecnicos": [],
+  "beneficios": [],
+  "especificaciones": {},
+  "insignias": [],
+  "servicios": {
+    "entrega": "",
+    "pagos": "",
+    "garantia": "",
+    "cuidados": ""
+  }
+}
+
+FASE 2: DATOS MÍNIMOS PARA JOYERÍA Y RELOJERÍA
+Para cada joya, reloj o pieza de lujo, añade o valida campos según corresponda.
+
+Para joyas:
+- Metal: oro amarillo, oro blanco, oro rosa, plata, platino, etc.
+- Pureza del metal: 18k, 14k, 925, etc.
+- Piedra principal: diamante, zafiro, rubí, esmeralda, perla, etc.
+- Peso en quilates.
+- Talla o corte de la piedra.
+- Color, claridad o calidad, si aplica.
+- Certificado o informe gemológico, si existe.
+- Peso aproximado de la pieza.
+- Medidas o tallas disponibles.
+- Tipo de broche, cadena o engaste, si aplica.
+- Cuidados recomendados.
+
+Para relojes:
+- Tipo de movimiento: automático, cuarzo, manual, solar, etc.
+- Reserva de marcha, si aplica.
+- Material de caja.
+- Diámetro de caja.
+- Grosor, si se conoce.
+- Tipo de cristal: zafiro, mineral, etc.
+- Resistencia al agua.
+- Material de correa o brazalete.
+- Funciones: fecha, cronógrafo, GMT, fase lunar, etc.
+- Garantía.
+- Recomendaciones de mantenimiento.
+
+FASE 3: DESCRIPCIÓN PERSUASIVA Y HOMOGÉNEA
+Redacta descripciones persuasivas, pero basadas en hechos. Todas las fichas deben tener la misma estructura.
+
+Estructura obligatoria de cada descripción:
+1. Título claro, de 55 a 70 caracteres.
+2. Descripción corta, de 140 a 160 caracteres.
+3. Descripción larga, de 90 a 130 palabras.
+4. Cinco a ocho bullets técnicos.
+5. Tres beneficios verificables.
+6. Llamado a la acción sobrio.
+
+Reglas de redacción:
+- Usa español neutro-costarricense, claro y profesional.
+- No uses frases como "el mejor", "único", "imperdible" o "perfecto" si no hay evidencia.
+- Usa el lujo desde la precisión: materiales, acabado, certificación, durabilidad, servicio y trazabilidad.
+- Si una pieza es hecha a mano, indícalo solo si es real.
+- Si hay certificación, nómbrala exactamente.
+- Si hay garantía, indica duración y condiciones básicas.
+- Evita tecnicismos excesivos. Explica brevemente cuando sea necesario.
+
+Ejemplo de estilo permitido:
+"Este anillo solitario está elaborado en oro de 18 quilates y presenta un diamante con certificación GIA. Su diseño clásico favorece la entrada de luz y permite un uso cómodo en el día a día."
+
+Ejemplo de estilo no permitido:
+"El anillo más hermoso del mundo, perfecto para enamorar a cualquiera. Una oportunidad única que no puedes perder."
+
+FASE 4: TÁCTICAS ECONÓMICAS CLARAS Y ÉTICAS
+La empresa necesita aplicar mejor sus tácticas económicas. No uses tácticas engañosas.
+
+Incluye en cada ficha:
+- Precio visible en colones costarricenses.
+- Precio aproximado en dólares, si la empresa lo maneja.
+- Indicación clara de IVA incluido o desglosado.
+- Disponibilidad real o condición de bajo pedido.
+- Métodos de pago: SINPE Móvil, tarjeta, transferencia, efectivo en tienda, etc.
+- Condiciones de entrega: GAM, envíos nacionales, courier, tiempo estimado.
+- Garantía o servicio postventa.
+- Opciones de mantenimiento, limpieza o ajuste, si existen.
+- Posibilidad de apartado o financiamiento, solo si es real.
+- Recomendaciones de compra responsable.
+
+Reglas de precio:
+- Nunca dejes el precio vacío.
+- Si el producto no tiene precio disponible, muestra "Consultar precio" y un botón de asesoría.
+- Si hay descuento, el precio anterior debe ser real y verificable.
+- Si hay envío gratis, indica condiciones claras.
+- Si hay escasez, solo indica stock real.
+
+FASE 5: SOLUCIÓN WEB CON INDEX, CSS Y JS
+Genera una solución simple, elegante y funcional.
+
+Requisitos del index.html:
+- Idiomas es.en.fr.pr.ch
+- Estructura semántica básica: header, main, footer.
+- Un contenedor principal llamado view o app.
+- Enlace a styles.css.
+- Enlace a app.js al final del body.
+- Footer con datos de contacto básicos, métodos de pago y aclaración de IVA.
+
+Requisitos del styles.css:
+- Diseño responsive.
+- Estética de lujo sobria: fondos oscuros, detalles dorados, tipografía elegante.
+- Tarjetas de producto con imágenes en proporción cuadrada.
+- Las imágenes deben usar aspect-ratio: 1 / 1.
+- Las imágenes deben usar object-fit: contain para evitar recortes no deseados.
+- Precio visible y destacado.
+- Estados focus-visible para accesibilidad.
+- Botones claros y legibles.
+- Detalle de producto en dos columnas en escritorio y una columna en móvil.
+
+Requisitos del app.js:
+- Los productos deben estar en un arreglo llamado PRODUCTS o cargarse desde JSON.
+- Cada producto debe tener id único.
+- El catálogo debe mostrar tarjetas con enlace interno.
+- El detalle debe abrirse mediante hash routing, por ejemplo: #/producto/id.
+- No usar onclick inline ni índices ambiguos que causen abrir el producto equivocado.
+-
