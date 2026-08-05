@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#6d9cbb" />
+      <stop offset="100%" stop-color="#2d4f60" />
+    </linearGradient>
+    <linearGradient id="forest" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#2f5f42" />
+      <stop offset="100%" stop-color="#102715" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)" />
+  <rect y="280" width="1200" height="520" fill="url(#forest)" />
+  <path d="M0 460 Q120 420 220 480 Q320 540 420 490 Q520 440 620 500 Q720 560 820 520 Q920 480 1020 530 Q1100 570 1200 520 V800 H0 Z" fill="#1e3b23" />
+  <path d="M160 540 C 180 500 220 500 240 540 C 260 580 280 560 320 580 C 360 600 400 580 440 620 C 480 660 520 620 560 600 C 600 580 640 620 680 620 C 720 620 760 590 800 600 C 840 610 880 590 920 580 C 960 570 1000 590 1040 600 C 1080 610 1120 590 1200 620 V800 H0 Z" fill="#7db06a" opacity="0.75" />
+  <path d="M80 650 Q140 600 200 660 Q260 720 320 690 Q380 660 440 700 Q500 740 560 710 Q620 680 680 720 Q740 760 800 730 Q860 700 920 740 Q980 780 1040 750 Q1100 720 1200 760 V800 H0 Z" fill="#1f422b" opacity="0.85" />
+</svg>

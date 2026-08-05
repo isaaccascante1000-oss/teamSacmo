@@ -1,0 +1,123 @@
+:root {
+  --guaria-morada: #9B59B6;
+  --guanacaste-gold: #D4AC0D;
+  --tropical-vibrant: #E74C3C;
+  --background-overlay: rgba(0,0,0,0.42);
+  --background-overlay-strong: rgba(0,0,0,0.62);
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(155, 89, 182, 0.12), transparent 35%),
+    linear-gradient(180deg, #060506 0%, #120f18 100%);
+  color: #f5eef8;
+}
+
+.site-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(9, 8, 10, 0.96), rgba(9, 8, 10, 0.92));
+}
+
+main.app-container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-visual {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.hero-visual picture,
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--background-overlay);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 8, 10, 0.18), rgba(9, 8, 10, 0.88) 65%);
+  pointer-events: none;
+}
+
+.hero .hero-title,
+.hero .hero-subtitle,
+.hero .hero-cta {
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  padding-top: min(9rem, 12vh);
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 900px) {
+  .hero-visual {
+    transform: translateY(-5%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual,
+  .hero-visual img {
+    animation: none;
+    transition: none;
+  }
+}
+
+.hero-title {
+  color: var(--guanacaste-gold);
+}
+
+.hero-subtitle {
+  color: #f3eafd;
+}
+
+.hero-cta {
+  background: rgba(155, 89, 182, 0.94);
+  border-color: var(--guanacaste-gold);
+  color: #ffffff;
+}
+
+.hero-cta:hover,
+.hero-cta:focus-visible {
+  background: rgba(231, 76, 60, 0.96);
+  color: #ffffff;
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(212, 172, 13, 0.2);
+}
+
+.site-footer {
+  background: rgba(8, 7, 11, 0.96);
+}
+
+.footer-title,
+.footer-text,
+.footer-list li,
+.contact-card h3,
+.contact-card p {
+  color: #f0eaf4;
+}

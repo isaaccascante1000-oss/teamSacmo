@@ -528,6 +528,14 @@ function renderHome() {
 
   return `
     <section class="hero">
+      <div class="hero-visual">
+        <picture>
+          <source srcset="backgrounds/hero-rainforest.svg" media="(max-width: 899px)">
+          <source srcset="backgrounds/hero-beach.svg" media="(min-width: 900px)">
+          <img src="backgrounds/hero-beach.svg" alt="Paisaje costarricense de playa y bosque para fondo de joyería">
+        </picture>
+        <div class="hero-overlay"></div>
+      </div>
       <h1 class="hero-title">Joyería con raíces costarricenses</h1>
       <p class="hero-subtitle">Seleccionamos piezas de joyería fina y relojería con criterio de calidad, certificación y servicio postventa. Atendemos con la calidez de siempre.</p>
       <a href="#/catalogo" class="hero-cta">Explorar catálogo <span class="arrow">→</span></a>
@@ -878,6 +886,36 @@ function initMobileMenu() {
   });
 }
 
+/* Suave parallax para el hero (sólo transform, rendimiento-friendly) */
+function initHeroParallax() {
+  const heroVisual = document.querySelector('.hero-visual');
+  if (!heroVisual) return;
+
+  let lastScroll = window.scrollY;
+  const maxTranslate = 30; // px
+
+  function onScroll() {
+    const scrolled = window.scrollY;
+    // simple dampened value
+    const delta = (scrolled - lastScroll) * 0.35;
+    lastScroll += delta;
+    const rect = heroVisual.getBoundingClientRect();
+    // only animate when hero is visible
+    if (rect.bottom > 0) {
+      const translate = Math.max(Math.min(lastScroll * 0.06, maxTranslate), -maxTranslate);
+      heroVisual.style.transform = `translateY(${translate}px)`;
+    }
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => { onScroll(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
 /* ============================================
    Inicialización
    ============================================ */
@@ -885,5 +923,6 @@ function initMobileMenu() {
 document.addEventListener("DOMContentLoaded", () => {
   handleRoute();
   initMobileMenu();
+  initHeroParallax();
   window.addEventListener("hashchange", handleRoute);
 });

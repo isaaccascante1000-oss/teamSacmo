@@ -218,6 +218,35 @@ body {
 .service-box h4 { font-size:0.7rem; font-weight:600; letter-spacing:0.8px; text-transform:uppercase; color:var(--color-dorado); margin-bottom:6px; }
 .service-box p { font-size:0.8rem; color:var(--color-texto-suave); line-height:1.5; }
 .detail-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
+
+/* Theme overrides and layout helpers (integración con theme.css) */
+/* Use Costa Rican luxury palette variables from theme.css when available */
+.site-shell { padding: 0; margin: 0; min-height: 100vh; display:flex; flex-direction:column; }
+
+/* Ensure hero content is readable over background art */
+.hero { position:relative; color:var(--color-texto); }
+.hero .hero-title { text-shadow: 0 6px 22px rgba(0,0,0,0.6); }
+.hero .hero-subtitle { text-shadow: 0 4px 18px rgba(0,0,0,0.55); }
+
+/* Constrain hero content and keep it above visual layer */
+.hero .hero-title, .hero .hero-subtitle, .hero .hero-cta { max-width: 900px; margin-left:auto; margin-right:auto; padding: 0 16px; }
+
+/* CTA styling fallback to theme variables for high contrast */
+.hero-cta { border: 2px solid var(--guanacaste-gold); background: linear-gradient(90deg,var(--guaria-morada),var(--tropical-vibrant)); color: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.45); }
+
+/* Hero visual: ensure the picture covers and remains behind content */
+.hero-visual { position:absolute; top:0; left:0; right:0; height:100%; pointer-events:none; z-index:0; transform:translateZ(0); }
+.hero-overlay { mix-blend-mode:multiply; }
+
+/* Small responsive tweaks */
+@media (max-width: 720px) {
+  .header-inner { padding: 0 14px; }
+  .hero { padding-top: 5rem; padding-bottom: 3rem; }
+}
+
+/* Accessibility: ensure focus styles are visible on high-contrast background */
+:focus { outline: 3px solid rgba(212,172,13,0.9); outline-offset: 2px; }
+
 .btn-primary {
   padding:14px 32px; background:var(--color-dorado); color:var(--color-fondo);
   font-family:var(--font-body); font-size:0.8rem; font-weight:600; letter-spacing:1px;

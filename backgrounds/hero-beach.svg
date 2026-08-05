@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#5B8FFF" />
+      <stop offset="100%" stop-color="#9B59B6" />
+    </linearGradient>
+    <linearGradient id="ocean" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#3377b6" />
+      <stop offset="100%" stop-color="#1b3a5a" />
+    </linearGradient>
+    <linearGradient id="sand" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#F6D16B" />
+      <stop offset="100%" stop-color="#D4AC0D" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)" />
+  <ellipse cx="860" cy="140" rx="140" ry="110" fill="#FFE29D" opacity="0.9" />
+  <rect y="430" width="1200" height="210" fill="url(#ocean)" />
+  <rect y="610" width="1200" height="190" fill="url(#sand)" />
+  <path d="M0 610 C 180 580 320 680 600 660 C 850 640 980 720 1200 690 V800 H0 Z" fill="#e5c261" opacity="0.9" />
+  <path d="M240 560 C 280 510 360 520 420 560 C 470 590 490 620 560 610 C 620 600 680 590 740 620 C 800 650 860 620 920 590 C 980 560 1040 580 1200 560 V800 H0 Z" fill="#ffffff" opacity="0.07" />
+</svg>
